@@ -1,0 +1,70 @@
+[video]
+source = "0"
+display = true
+frame_width = 960
+frame_height = 540
+
+[camera]
+horizontal_fov_deg = 120.0
+vertical_fov_deg = 78.0
+mount_height_m = 0.14
+tilt_down_deg = 18.0
+depth_scale_m = 0.18
+
+[runtime]
+enable_detection = true
+max_detections = 3
+
+[detection]
+mode = "heuristic"
+confidence = 0.35
+min_area = 900
+roi_start_ratio = 0.45
+classes = ["pothole"]
+
+[depth]
+mode = "proxy"
+normalize = true
+midas_model_type = "DPT_Hybrid"
+depthanything_model = "LiheYoung/depth-anything-small-hf"
+
+[severity]
+minor_score = 0.12
+moderate_score = 0.24
+severe_score = 0.40
+
+[control]
+cruise_speed = 55
+slow_speed = 30
+avoid_speed = 24
+avoid_direction = "right"
+send_interval_ms = 150
+
+[dataset]
+root = "datasets/pothole_yolo"
+train_split = 0.8
+val_split = 0.1
+test_split = 0.1
+image_ext = ".jpg"
+
+[online_learning]
+enabled = true
+capture_enabled = true
+auto_retrain = false
+min_confidence = 0.80
+capture_every_n_frames = 15
+min_samples_before_retrain = 50
+retrain_cooldown_minutes = 30
+epochs = 5
+imgsz = 640
+base_weights = "weights/yolov8n-seg.pt"
+project_dir = "artifacts/training"
+
+[dashboard]
+enabled = true
+host = "127.0.0.1"
+port = 8765
+show_preview = false
+write_snapshot = true
+snapshot_path = "artifacts/dashboard/frame.jpg"
+state_path = "artifacts/dashboard/state.json"

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-05-08T14:31:23.805815+00:00",
+  "detection_enabled": true,
+  "command": "AVOID dir=right speed=24",
+  "vehicle_speed_pct": 24,
+  "fps": 23.946378615389886,
+  "detections_seen": 8,
+  "top_detection": {
+    "severity": "severe",
+    "score": 0.49590166834548666,
+    "confidence": 0.3587046682098765,
+    "distance_m": 0.10309140468469997,
+    "width_m": 0.07923580063978536,
+    "length_m": 0.02720887431722859,
+    "depth_m": 0.0856171041727066
+  },
+  "online_samples": 0,
+  "retrain_runs": 0,
+  "preview_path": null
+}

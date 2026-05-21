@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pothole-detection-prototype"
+version = "0.1.0"
+description = "Real-time pothole detection and RC car control prototype"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "opencv-python>=4.9",
+]
+
+[project.optional-dependencies]
+control = ["pyserial>=3.5"]
+models = ["torch>=2.2", "torchvision>=0.17", "ultralytics>=8.2", "transformers>=4.40", "pillow>=10.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

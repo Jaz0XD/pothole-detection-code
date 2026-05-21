@@ -1,0 +1,6 @@
+path: /home/sirajuddeen/Downloads/pothole-detection-code-main/datasets/pothole_yolo
+train: images/train
+val: images/val
+test: images/test
+
+names: ['pothole']
